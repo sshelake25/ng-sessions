@@ -1,0 +1,52 @@
+<p>root-list works!</p>
+<h2>
+   {{outfromChild | json}}
+</h2>
+
+<h4>NgIf</h4>
+<ul *ngFor="let person of people; index as i">
+   <!-- {{i}} age->>> {{person.age}} -->
+   <li *ngIf="person.age < 30">
+      {{ person.name }} ({{ person.age }})(Person is yonger)
+   </li>
+
+   <li *ngIf="person.age > 30">
+      {{ person.name }} ({{ person.age }}) (Person is mid age)
+   </li>
+</ul>
+
+<h3>{{numbers}}</h3>
+<br>
+<br>
+<br>
+<br>
+
+{{people | json}}
+<!-- json is build in piple provided by angular  -->
+
+
+
+<!--this is interpolation-->
+<h1 class="myheader" id="thisuniques" title="this hearding of page" formateTitle>
+   <!--formateTitle ---## -->
+   ### I am at too of product - info and cart ?!!!
+</h1>
+<!-- <app-product-info [productList]="prodListArray">
+</app-product-info> -->
+<app-cart></app-cart>
+
+<app-product-info [productList]="xyz" [FirstName]="'Vikarm'" [LastName]="'Readyy'" (amount)="recivedOutput($event)">
+</app-product-info>
+
+
+<!-- <login [loginName]="abc" [locationOfLogin]="mum" [timeOfLogin]="7am"> </login> -->
+
+<!-- []   - input 
+     () -  output
+-->
+
+<!-- <parent-component>
+   <child-component-one></child-component-one>
+   <child-component-two></child-component-two>
+   <child-component-thr></child-component-thr>
+ </parent-component> -->

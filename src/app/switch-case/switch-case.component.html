@@ -1,0 +1,22 @@
+This is switch - case
+<div [ngStyle]="{'background-color':'blue'}">dsdsa </div>
+
+<div [ngStyle]="{'background-color': isPerson === 'US' ? 'green' : 'red' }">This is person</div>
+
+
+<ul *ngFor="let person of people">
+    <li  [ngClass]="{'text-success': getPersonContry(false)}" > {{ person.name }} ({{ person.country }}) 
+    </li>
+</ul>
+
+<br>
+<ng-template [ngIf]="isPerson">
+    <p class="card-text">
+        This is ng-tempalte syntazx [ngIf]
+    </p>
+</ng-template>
+
+
+<p class="card-text" *ngIf="isPerson">
+    This is ng-tempalte syntazx *ngIf
+</p>
