@@ -1,4 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
+import { last, map, min, take } from 'rxjs/operators';
+
+
+// import { interval } from 'rxjs';
+// import { take, map } from 'rxjs/operators';
+// const numbers = interval(1000);
+// const takeThree = numbers.pipe(
+//   take(3),
+//   map((v) => Date.now())
+// );
+// takeThree.subscribe(value => console.log("Subscriber: " + value));
 
 @Component({
   selector: 'app-switch-case',
@@ -24,13 +36,15 @@ import { Component, OnInit } from '@angular/core';
   //    RR--- {{ person.name }} ({{ person.country }})
   //   </li>
   // </ul>
-  
+
   // <h2 *ngIf="isPerson">This is visible </h2>
   // `,
   styleUrls: ['./switch-case.component.scss']
 })
 export class SwitchCaseComponent implements OnInit {
   isPerson: string = 'US';
+  timer;
+
   people: any[] = [
     {
       "name": "Douglas  Pace",
@@ -78,6 +92,34 @@ export class SwitchCaseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let num = 5;
+    const numbers = interval(1000); // api
+    console.log(numbers);
+    numbers.pipe(
+      take(10), ///1
+      // map(v => { //2
+      //   console.log(v);
+      //   return Date.now();
+      // }),
+      map(v => {
+        console.log(v, num);
+        return num = num + 1; // num++
+      }), //3,
+      // last()
+      min()
+    ).subscribe(
+      //callback // 
+      // //normal js syntac
+      // function (value) { // with name
+      //   console.log("Subscriber: " + value)
+      // }
+
+      //flat arrow 
+      (value) => {
+        this.timer = value;
+        console.log("Subscriber: " + value)
+      }
+    );
   }
 
 }
