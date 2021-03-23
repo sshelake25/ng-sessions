@@ -7,6 +7,7 @@ import { RootListComponent } from './root-list/root-list.component';
 import { ProductInfoComponent } from './root-list/product-info/product-info.component';
 import { CartComponent } from './root-list/cart/cart.component';
 import { SwitchCaseComponent } from './switch-case/switch-case.component';
+import { ReactiveFormLearningComponent } from './reactive-form-learning/reactive-form-learning.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SwitchCaseComponent } from './switch-case/switch-case.component';
     RootListComponent,
     ProductInfoComponent,
     CartComponent,
-    SwitchCaseComponent
+    SwitchCaseComponent,
+    ReactiveFormLearningComponent
   ],
   imports: [
     BrowserModule,
