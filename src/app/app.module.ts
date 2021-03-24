@@ -8,6 +8,9 @@ import { ProductInfoComponent } from './root-list/product-info/product-info.comp
 import { CartComponent } from './root-list/cart/cart.component';
 import { SwitchCaseComponent } from './switch-case/switch-case.component';
 import { ReactiveFormLearningComponent } from './reactive-form-learning/reactive-form-learning.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ReactiveFormLearningComponent } from './reactive-form-learning/reactive
     ProductInfoComponent,
     CartComponent,
     SwitchCaseComponent,
-    ReactiveFormLearningComponent
+    ReactiveFormLearningComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
