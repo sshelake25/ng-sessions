@@ -12,7 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TemplateFormLearnComponent } from './template-form-learn/template-form-learn.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormLearningComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    TemplateFormLearnComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, /// if we mieesedd,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

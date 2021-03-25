@@ -1,0 +1,42 @@
+<div class="template-conatiner">
+<h2>Learnign temple drivan form</h2>
+    <form novalidate #singup="ngForm">
+      <pre>{{singup.value | json}}</pre>
+
+        <fieldset>
+          <div class="form-group">
+            <label>First Name</label>
+            <!-- <input type="text"
+                   class="form-control" name="fname" [(ngModel)]="fname"> -->
+                     <input type="text"
+                   class="form-control" name="fname" ngModel>
+          </div>
+      <div class="form-group">
+            <label>Last Name</label>
+            <input type="text"
+                   class="form-control" name="lname" ngModel>
+          </div>
+        </fieldset>
+      <div class="form-group">
+          <label>Email</label>
+          <input type="email"
+                 class="form-control">
+        </div>
+      <div class="form-group">
+          <label>Password</label>
+          <input type="password"
+                 class="form-control">
+        </div>
+      <div class="form-group">
+          <label>Language</label>
+          <select class="form-control">
+            <option value="">Please select a language</option>
+            <option *ngFor="let lang of langs"
+                    [value]="lang">
+                    {{lang}}
+            </option>
+          </select>
+        </div>
+      </form>
+</div>
+  

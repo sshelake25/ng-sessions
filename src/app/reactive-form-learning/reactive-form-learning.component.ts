@@ -22,17 +22,6 @@ export class ReactiveFormLearningComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //     myform = new FormGroup({
-    //       name: new FormGroup({ (2)
-    //           firstName: new FormControl(), (3)
-    //           lastName: new FormControl(),
-    //       }),
-    //       email: new FormControl(),
-    //       : new FormControl(),
-    //       language: new FormControl()
-    //   });
-    // }
-
     this.loginForm = new FormGroup({
       email: new FormControl(),
       password: new FormControl(),
