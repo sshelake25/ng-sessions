@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form-learning',
@@ -23,9 +23,16 @@ export class ReactiveFormLearningComponent implements OnInit {
   ngOnInit(): void {
 
     this.loginForm = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl(),
-      langauge : new FormControl()
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.max(5)
+      ]),
+      langauge : new FormControl('English')
     });
 
   }
