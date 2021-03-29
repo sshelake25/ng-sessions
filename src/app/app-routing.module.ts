@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormLearningComponent } from './reactive-form-learning/reactive-form-learning.component';
+import { ProductInfoComponent } from './root-list/product-info/product-info.component';
 import { RootListComponent } from './root-list/root-list.component';
 import { SwitchCaseComponent } from './switch-case/switch-case.component';
 import { TemplateFormLearnComponent } from './template-form-learn/template-form-learn.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'switch', component: SwitchCaseComponent },
   { path: 'list', component: RootListComponent },
   { path: 'template', component: TemplateFormLearnComponent },
+  { path: 'info', component: ProductInfoComponent },
   {path: '**', component: SwitchCaseComponent}
 ];
 

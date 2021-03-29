@@ -2,6 +2,7 @@
 import { Component, OnChanges, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 import { range } from "rxjs";
 import { map, filter } from "rxjs/operators";
+import { UserDetailsService } from '../user-details.service';
 
 // range(1, 200)
 //   .pipe(
@@ -57,6 +58,7 @@ export class RootListComponent implements Office {
       "age": 32
     }
   ];
+  userDetails;
 
 
   //loginInfo.eid.az or loginInfo['eid']['']
@@ -68,7 +70,7 @@ export class RootListComponent implements Office {
     }
   }
 
-  constructor() {
+  constructor(private userDt: UserDetailsService ) {
     // it wil get invoke/ called when you create instance of class
     // initalization purpose
     this.firstname = "dadssa"
@@ -98,6 +100,9 @@ export class RootListComponent implements Office {
   ngOnInit(): void {
     this.xyz = ['abc', 'kusuma', 'umshi', 'renuka'];
     console.log('component inilized');
+
+    this.userDetails  =  this.userDt.getUserDetails();
+
   }
 
   recivedOutput(data) {
