@@ -2,6 +2,8 @@
 import { Component, OnChanges, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 import { range } from "rxjs";
 import { map, filter } from "rxjs/operators";
+import { CompanyRelateService } from '../person/company-relate.service';
+import { PersonInfoService } from '../person/person-info.service';
 import { UserDetailsService } from '../user-details.service';
 
 // range(1, 200)
@@ -59,6 +61,7 @@ export class RootListComponent implements Office {
     }
   ];
   userDetails;
+  config: { url: string; };
 
 
   //loginInfo.eid.az or loginInfo['eid']['']
@@ -70,7 +73,11 @@ export class RootListComponent implements Office {
     }
   }
 
-  constructor(private userDt: UserDetailsService ) {
+  constructor(
+    private userDt: UserDetailsService, 
+    private compyRel: CompanyRelateService,
+    private ps:  PersonInfoService 
+    ) {
     // it wil get invoke/ called when you create instance of class
     // initalization purpose
     this.firstname = "dadssa"
@@ -98,6 +105,15 @@ export class RootListComponent implements Office {
   }
 
   ngOnInit(): void {
+
+    this.config = {
+      url :  'https://apollo-singapore.akamaized.net/v1/files/dmby2v73fyen2-IN/image'
+    }
+
+   let datafromBothServices = this.compyRel.getCompanyDetails();
+
+   console.log(datafromBothServices);
+
     this.xyz = ['abc', 'kusuma', 'umshi', 'renuka'];
     console.log('component inilized');
 

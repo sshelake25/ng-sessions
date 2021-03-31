@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, Directive, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +18,11 @@ import { TemplateFormLearnComponent } from './template-form-learn/template-form-
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PersonsDetailsComponent } from './person-components/persons-details/persons-details.component';
+import { PersonInfoService } from './person/person-info.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    TemplateFormLearnComponent
+    TemplateFormLearnComponent,
+    PersonsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +45,28 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// @Component({
+//   template: '',
+//   selector: '',
+
+// })
+// @NgModule({
+//   declarations: [],
+//   imports: [],
+//   exports: []
+// })
+// @Directive({
+//   selector: '[appHighlight]'
+// })
+export class myComponent {
+
+}
