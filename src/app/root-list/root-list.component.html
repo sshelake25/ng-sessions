@@ -6,15 +6,16 @@
 {{config.url}}
 <img src="{{config.url}}" width="400" height="300" />
 
-<h4>NgIf</h4>
+<h4>*Ng For using pipe to transform data</h4>
 <ul *ngFor="let person of people; index as i">
+   {{ person.name | visiedcountry:'Us':'Can':'Germeny' | uppercase }} 
    <!-- {{i}} age->>> {{person.age}} -->
    <li *ngIf="person.age < 30">
-      {{ person.name }} ({{ person.age }})(Person is yonger)
+      {{ person.name  }} ({{ person.age }})(Person is yonger)
    </li>
 
    <li *ngIf="person.age > 30">
-      {{ person.name }} ({{ person.age }}) (Person is mid age)
+      {{ person.name | lowercase }} ({{ person.age }}) (Person is mid age)
    </li>
 </ul>
 {{userDetails | json}}

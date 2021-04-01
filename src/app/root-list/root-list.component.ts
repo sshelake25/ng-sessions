@@ -1,9 +1,10 @@
 
 import { Component, OnChanges, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 import { range } from "rxjs";
-import { map, filter } from "rxjs/operators";
+import { map, filter, first, tap } from "rxjs/operators";
 import { CompanyRelateService } from '../person/company-relate.service';
 import { PersonInfoService } from '../person/person-info.service';
+import { StateService } from '../services/state.service';
 import { UserDetailsService } from '../user-details.service';
 
 // range(1, 200)
@@ -74,10 +75,11 @@ export class RootListComponent implements Office {
   }
 
   constructor(
-    private userDt: UserDetailsService, 
+    private userDt: UserDetailsService,
     private compyRel: CompanyRelateService,
-    private ps:  PersonInfoService 
-    ) {
+    private ps: PersonInfoService,
+    private state: StateService
+  ) {
     // it wil get invoke/ called when you create instance of class
     // initalization purpose
     this.firstname = "dadssa"
@@ -88,8 +90,8 @@ export class RootListComponent implements Office {
     return A + B;
   }
 
-  addNormal(A,B) {
-    return A+B;
+  addNormal(A, B) {
+    return A + B;
   }
 
   ngAfterViewInit() {
@@ -105,19 +107,33 @@ export class RootListComponent implements Office {
   }
 
   ngOnInit(): void {
+    let stateList = this.state.getStateCity();
+
+    stateList
+      .pipe(
+        first(),
+        tap(item => {
+          console.log(item)// whole data
+          // return item.State === 'Rajasthan';
+        })
+      )
+      .subscribe(
+        succ => { console.log(succ) },
+        error => { console.log(error) }
+      );
 
     this.config = {
-      url :  'https://apollo-singapore.akamaized.net/v1/files/dmby2v73fyen2-IN/image'
+      url: 'https://apollo-singapore.akamaized.net/v1/files/dmby2v73fyen2-IN/image'
     }
 
-   let datafromBothServices = this.compyRel.getCompanyDetails();
+    let datafromBothServices = this.compyRel.getCompanyDetails();
 
-   console.log(datafromBothServices);
+    console.log(datafromBothServices);
 
     this.xyz = ['abc', 'kusuma', 'umshi', 'renuka'];
     console.log('component inilized');
 
-    this.userDetails  =  this.userDt.getUserDetails();
+    this.userDetails = this.userDt.getUserDetails();
 
   }
 

@@ -22,6 +22,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PersonsDetailsComponent } from './person-components/persons-details/persons-details.component';
 import { PersonInfoService } from './person/person-info.service';
+import { BirthdayPipe } from './birthday.pipe';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PersonInfoService } from './person/person-info.service';
     FooterComponent,
     HomeComponent,
     TemplateFormLearnComponent,
-    PersonsDetailsComponent
+    PersonsDetailsComponent,
+    BirthdayPipe
   ],
   imports: [
     BrowserModule,
